@@ -3,8 +3,10 @@ import './App.css';
 import List from './components/List';
 import withListLoading from './components/withListLoading';
 
-function App() {
+const App = () => {
+
   const ListLoading = withListLoading(List);
+  
   const [appState, setAppState] = useState({
     loading: false,
     repos: null,
@@ -16,7 +18,10 @@ function App() {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((repos) => {
-        setAppState({ loading: false, repos: repos });
+        setAppState({ 
+          loading: false, 
+          repos: repos 
+        });
       });
   }, [setAppState]);
   
